@@ -5,10 +5,10 @@ const {
   getUsers,
   createUsers,
   deleteUsers,
-} = require('../controller/tasks');
+} = require('../controllers/users');
 
-router.get('/users', getUsers);
-router.post('/users', createUsers);
-router.delete('/users/:id', deleteUsers);
+router.get('/', getUsers);
+router.post('/', createUsers);
+router.delete('/:id', deleteUsers);
 
 module.exports = router;

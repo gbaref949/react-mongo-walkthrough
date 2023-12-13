@@ -1,4 +1,4 @@
-const {MongoClient} = require("mongodb");
+// const {MongoClient} = require("mongodb");
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -23,8 +23,8 @@ app.use('/users', userRoute);
 const initServer = async () => {
   //first thing we want it to do is connect to the server
   try {
-    await connectDB(process.env.MONGO_URI);
-    app.listen(5000, () => {
+    await connectDB('mongodb+srv://dummyUser:Bg5Fmc0nCsR4YM7t@georgiecluster.qjq92r5.mongodb.net/Personal');
+    app.listen(port, () => {
       //server listen
       console.log('Server is listening on Port 5000');
     });

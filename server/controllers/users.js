@@ -1,5 +1,4 @@
-const { User} = require('../models/task'); //import models
-// const { user, task } = require('../data');
+const { User} = require('../models/user.js'); //import models
 //get tasks and returns them
 const getUsers = async (req, res) => {
   try {
@@ -40,16 +39,6 @@ const deleteUsers = async (req, res) => {
     if (!user) {
       return res.status(404).json({ success: false, msg: 'User not found' });
     }
-
-    // Find all tasks assigned to this user
-    const tasks = await Task.find({ assignedTo: user._id });
-
-    // Reassign tasks to unassigned
-    await Task.updateMany(
-      { assignedTo: user._id },
-      { $set: { assignedTo: null } }
-    );
-
     // Delete the user
     await user.remove();
 
